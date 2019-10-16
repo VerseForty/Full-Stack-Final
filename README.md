@@ -1,3 +1,3 @@
 # Full-Stack-Final
-+ Authors:
+Authors:
 + Derek Windahl
