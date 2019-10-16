@@ -1,4 +1,6 @@
 # Full-Stack-Final
 Authors:
-Derek Windahl
-Chris Cruz
+
++ Derek Windahl
++ Matt Varelli
++ Chris Cruz
