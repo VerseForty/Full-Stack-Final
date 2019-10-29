@@ -1,5 +1,21 @@
 <html>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.558.0.min.js"></script>
+
+<script type="text/javascript">
+  AWS.config.update({region: 'us-east'});
+  AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: "us-east-1:327b6905-6e3e-4496-b4a2-65ada8ec088c"});
+  //alert("done")
+</script>
+<script src="sendNumber.js"></script>
+
   <body>
     Placeholder for battle simulator
+
+    <form id ="sendNum" action="./sendNumber.js">
+      <input type = "number" name = "Enter"
+      <br>
+      <button type = "button" onclick="alertBox()"> Click </button>
+    </form>
+
   </body>
 </html>
