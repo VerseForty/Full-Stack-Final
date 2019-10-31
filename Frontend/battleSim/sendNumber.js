@@ -5,7 +5,7 @@
 
 var lambda = new AWS.Lambda();
 var myParams = {
-  FunctionName : 'lambda_handler',
+  FunctionName : 'lambda_test',
   InvocationType : 'RequestResponse',
   LogType : 'None'
 }
