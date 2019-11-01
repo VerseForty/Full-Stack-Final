@@ -5,8 +5,12 @@
  */
 body {
   overflow-x: hidden;
+
+  /*
+  background
+  */
   background-image: url("https://www.onlygfx.com/wp-content/uploads/2015/12/simple-old-paper-1-transparent.jpg");
-  
+
 }
 
 
