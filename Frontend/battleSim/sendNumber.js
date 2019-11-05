@@ -11,13 +11,13 @@ var myParams = {
 }
 //alert("made lambda... yay?");
 function alertBox(){
-  //var entered = document.getElementById("sendNum");
-  //var asdf = (entered.elements[0].value);
-  //var enteredInt = (parseInt(entered.elements[0].value));
+  var entered = document.getElementById("sendNum");
+  var asdf = (entered.elements[0].value);
+  var enteredInt = (parseInt(entered.elements[0].value));
   //alert(entered.toString());
   //alert(entered.elements[0].value);
   //alert(typeof asdf); //entered defaults to string
-  //alert(enteredInt + 1);
+  alert(enteredInt + 1);
 
 
 }
@@ -28,7 +28,7 @@ function initiateLambda(){
     if (err) {
             prompt(err);
          } else {
-            alert("eyyy");
+            alert(JSON.stringify(data));
          }
   });
 }
