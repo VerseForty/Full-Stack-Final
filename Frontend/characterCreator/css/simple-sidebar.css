@@ -6,9 +6,22 @@
 body {
   overflow-x: hidden;
   background-image: url("https://www.onlygfx.com/wp-content/uploads/2015/12/simple-old-paper-1-transparent.jpg");
-  
+
 }
 
+#divBox{
+  margin: auto;
+  border-style: double;
+  background-color: white;
+  width: 1200px;
+  height: 600px;
+}
+
+#formArea{
+  float: left;
+  width: 600px;
+  height: 600px;
+}
 
 #sidebar-wrapper {
   min-height: 100vh;
