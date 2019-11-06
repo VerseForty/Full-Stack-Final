@@ -1,6 +1,7 @@
 
 
 function makeJSON(){
+  var userID = "";
   var name = document.forms["characterForm"]["characterName"].value;
   //alert(name);
   //alert(typeof name);
@@ -16,7 +17,7 @@ function makeJSON(){
 
   //alert(name + race + playerClass + strength, dexterity, constitution, intelligence, wisdom, charisma);
 
-  characterSheetObj = {name: name, race: race, class: playerClass, strength: strength, dexterity: dexterity, constitution: constitution, intelligence: intelligence, wisdom: wisdom, charisma: charisma}
+  characterSheetObj = {userID: userID, name: name, race: race, class: playerClass, strength: strength, dexterity: dexterity, constitution: constitution, intelligence: intelligence, wisdom: wisdom, charisma: charisma}
   characterSheetJSON = JSON.stringify(characterSheetObj);
 //?  localStorage.setItem("testJSON", characterSheetJSON);
   alert(characterSheetJSON);
