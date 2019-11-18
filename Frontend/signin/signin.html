@@ -53,7 +53,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="login.html">Login</a>
+              <a class="nav-link" href="signin.html">Sign in</a>
             </li>
 
           </ul>
@@ -62,8 +62,22 @@
 
       <!-- main area of page -->
       <div class="container-fluid">
+        
+        <!--Creating user pool object. I couldn't think of a good place to put it-->
+        <script>
+          var poolData = {
+            UserPoolId : 'us-east-1_pLGErD6xb',
+            ClientId : '28ncuu62cultvdlp5v8fb51pqh'
+          };
+          var userPool = 
+          new AmazonCognitoIdentity.CognitoUserPool(poolData);
+          var userData = {
+            Username : '...', // your username here ¯\_(ツ)_/¯
+            Pool : userPool
+          };
+        </script>
 
-        <h1 class="mt-4">Placeholder for Sign-in</h1>
+        <h1 class="mt-4">Placeholder for sign-in</h1>
 
         <form name = "credentials" id = "credentials">
           <br><br>
@@ -75,8 +89,28 @@
           <br>
           <input type="text" name= "password" id ="password">
           <br><br>
-          <input type="submit" value="Submit" onclick= ""> <!-- JS function goes in quotes after onlick -->
+          <input type="submit" value="Submit" onclick= "submitInfo()"> <!-- JS function goes in quotes after onlick -->
           <br><br>
+		  
+		  <!-- Taking in inputs -->
+		  <script>
+		    function submitInfo(){
+		    var nm = document.getElementById("username").value;
+		    var pwd = document.getElementById("password").value;}
+
+        var attributeList = [];
+ 
+        var cognitoUser;
+        userPool.signUp(nm, pwd, attributeList, null, function(err, result){
+          if (err) {
+            alert(err);
+            return;
+          }
+          cognitoUser = result.user;
+          console.log('user name is ' + cognitoUser.getUsername());
+        });
+	    </script>
+	   
         <!--<p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
         <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p> -->
       </div>
