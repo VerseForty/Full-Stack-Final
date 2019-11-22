@@ -1,7 +1,10 @@
 # Full-Stack-Final
 Authors:
-+ Derek Windahl
 + Matt Varelli
++ Chris Cruz
++ Isaac Freshour
++ Derek Windahl
+
 
 To launch Django local server:
   Open powershell in the folder containing manage.py
