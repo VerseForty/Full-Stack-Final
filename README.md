@@ -8,7 +8,7 @@ Authors:
 
 To launch Django local server:
   Open powershell in the folder containing manage.py
-  Enter 'python manage.py runserver' in powershell
+  Enter 'python manage.py runserver' in powershell and hit enter   
   This will start the server on your local host network
   Go to your browser, enter http://127.0.0.1:8000/ and there you go
   
