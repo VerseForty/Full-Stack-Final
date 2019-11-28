@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[35]:
+# In[1]:
 
 
 class character:
-    def __init__(characterC, name, AC, dexterity, constitution, strength, intelligence, wisdom, charisma, level, HP):
+    def __init__(characterC, name, AC, dexterity, constitution, strength, intelligence, wisdom, charisma, level, HP, Class):
         characterC.name = name
         characterC.AC = AC
         characterC.dexterity = dexterity
@@ -16,7 +16,7 @@ class character:
         characterC.charisma = charisma
         characterC.level = level
         characterC.HP = HP
-
+        characterC.Class = Class
 
 
         
@@ -28,23 +28,38 @@ class monster:
         mon.HP = HP
         mon.ability = ability
         
+    
+class fighter:
+    def __init__(fighterC, level, BaseAttackBonus, Fortitude, Reflex, Will, Special):
+        fighterC.level = level
+        fighterC.BaseAttackBonus = BaseAttackBonus
+        fighterC.Fortitude = Fortitude
+        fighterC. Reflex = Reflex
+        fighterC.Will = Will
+        fighterC.Special = Special
+        
+        
 
 
-# In[102]:
+# In[2]:
 
 
-c = character("Chris", 10, 10, 10, 11, 10, 10, 10, 3, 30)
-c.name
+c = character("Chris", 10, 10, 10, 11, 10, 10, 10, 3, 30,"Fighter")
+
+f = fighter(0,0,0,0,0,0)
 
 
-# In[103]:
+    
+
+
+# In[3]:
 
 
 m = monster(1, "Ghoul", 14, 12, "Bite" )
 m.name
 
 
-# In[104]:
+# In[4]:
 
 
 import random
@@ -52,7 +67,7 @@ club = random.randint(1,6)
 print(club)
 
 
-# In[105]:
+# In[5]:
 
 
 def rollToHit(character):
@@ -62,7 +77,7 @@ def rollToHit(character):
     return accuracy + prof
 
 
-# In[106]:
+# In[6]:
 
 
 def proficiency(character):
@@ -107,34 +122,59 @@ def proficiency(character):
         return 20
 
 
-# In[107]:
+# In[7]:
 
 
 def Battle(character, monster):
     
     monsterHP = monster.HP
     
-    while monsterHP > 0:
-        z = Battle1(character, monster)
-        x = monsterHP - z
-        monsterHP = x
-        print(monsterHP)
+    characterHP = character.HP
+    
+    while monsterHP > 0 or characterHP > 0:
         
+        RTH = input("Roll to his? Type YES or NO")
+        print(RTH)
+        if(RTH == "YES"):
+        
+            z = Battle1(character, monster)
+            
+            x = monsterHP - z
+            
+            monsterHP = x
+            print(monsterHP)
+            if(monsterHP <= 0):
+                break
+            
+            zz = monBattle(character,monster)
+            
+            xx = characterHP - zz
+            
+            characterHP = xx
+            print(characterHP)
+            
+            
+        elif(RTH == "NO"):
+            print("PASS")
+        
+        elif(RTH == "END"):
+            break
 
 
-# In[108]:
+# In[8]:
 
 
 def Battle1(character, monster):
     accuracy = rollToHit(character)
     if accuracy >= monster.AC:
-        attack = attack1(character) + club
+        attack = attack1(character) + club + PlayerClassDamage(character)
         return attack
     elif accuracy < monster.AC:
         return 0
+    
 
 
-# In[111]:
+# In[9]:
 
 
 def attack1(character):
@@ -156,7 +196,80 @@ def attack1(character):
         return 17
 
 
-# In[112]:
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[10]:
+
+
+def PlayerClassDamage(x):
+    if(x.Class == "Fighter"):
+        return ClassFighterDamage(x)
+        print("called functionfighter")
+
+
+# In[ ]:
+
+
+
+
+
+# In[11]:
+
+
+
+def ClassFighterDamage(x):
+    print("in classfighter")
+    if(x.Class == "Fighter"):
+        
+        if(x.level == 3):
+            f.BaseAttackBonus = 1
+            return f.BaseAttackBonus
+    
+
+
+# In[12]:
+
+
+def monBattle(character,monster):
+    accuracy = rollToHitMon(monster)
+    if accuracy >= character.AC:
+        attack = attackMon(monster)
+        return attack
+    elif accuracy < character.AC:
+        return 0
+        
+  
+        
+
+
+# In[13]:
+
+
+def rollToHitMon(monster):
+    accuracy = random.randint(1,20)
+#    prof = proficiencyMon(character)
+    
+    return accuracy 
+
+
+# In[14]:
+
+
+def attackMon(monster):
+    return monster.CR
+
+
+# In[15]:
 
 
 Battle(c,m)
