@@ -1,4 +1,6 @@
 from django.db import models
+from django.forms import ModelForm
+
 
 class characterTable(models.Model):
     userID = models.CharField(max_length = 32)

@@ -1,0 +1,69 @@
+{% extends 'base.html' %} <!-- Add this for inheritance -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Welcome Home {% endblock %}</title></head>
+<body>
+  {% block pagecontent %}
+  <a href="{% url 'home' %}">Go Home</a>
+  <a href="{% url 'about' %}">About This Site</a>
+
+  <form name = "characterForm" id = "characterForm" method="POST">
+    {% csrf_token %}
+  Character Name:<br>
+  <input type="text" name="characterName" id ="characterName">
+  <br>
+
+  Race:<br>
+  <select name = "race" id = "race">
+    <option value = "human"> Human </option>
+    <option value = "elf"> Elf </option>
+    <option value = "dwarf"> Dwarf </option>
+    <option value = "gnome"> Gnome </option>
+    <option value = "halfling"> Halfling </option>
+    <option value = "halfElf"> Half-Elf </option>
+    <option value = "halfOrc"> Half-Orc </option>
+  </select>
+  <br>
+
+  Class:<br>
+  <select name = "class" id = "class" onchange="changePic()">
+    <option value = "fighter"> Fighter </option>
+    <option value = "rogue"> Rogue </option>
+    <option value = "wizard"> Wizard </option>
+  </select>
+  <br>
+
+  Strength:<br>
+  <input type = "number" name = "strength">
+  <br>
+
+  Dexterity:<br>
+  <input type = "number" name = "dexterity">
+  <br>
+
+  Constitution:<br>
+  <input type = "number" name = "constitution">
+  <br>
+
+  Intelligence:<br>
+  <input type = "number" name = "intelligence">
+  <br>
+
+  Wisdom:<br>
+  <input type = "number" name = "wisdom">
+  <br>
+
+  Charisma:<br>
+  <input type = "number" name = "charisma">
+  <br>
+
+  <br><br>
+  <input type="submit" class="btn" value="Click" name="mybtn">
+
+  <br><br>
+</form>
+ {% endblock %}
+</body>
+</html>

@@ -15,15 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls import url, include # Add include to the imports here
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('pathfinder.urls')),
-    path('characterCreator/', include('pathfinder.urls')),
-    path('battleSim/', include('pathfinder.urls')),
-    path('beginnersGuide/', include('pathfinder.urls')),
-    path('info/', include('pathfinder.urls')),
-    path('login/', include('pathfinder.urls'))
+    url(r'^admin/', admin.site.urls),
+    url(r'^', include('pathfinder.urls')), # tell django to read urls.py in example app
+
+    path('admin/', admin.site.urls)
+    #path('', include('pathfinder.urls')),
+    #path('characterCreator/', include('pathfinder.urls')),
+    #path('battleSim/', include('pathfinder.urls')),
+    #path('beginnersGuide/', include('pathfinder.urls')),
+    #path('info/', include('pathfinder.urls')),
+    #path('login/', include('pathfinder.urls'))
 
 
 
