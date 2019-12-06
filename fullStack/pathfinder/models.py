@@ -15,13 +15,13 @@ class characterTable(models.Model):
     charisma = models.CharField(max_length = 2)
 
     def __str__(self):
-        return (self.userID + ": " + self.playerName )
+        return (self.userID + " " + self.playerName + " " + self.race + " " + self.playerClass + " " + self.strength + " " + self.dexterity + " " + self.constitution + " " + self.wisdom + " " + self.charisma)
 
 
 class monsterTable(models.Model):
     monsterName = models.CharField(max_length = 32)
-    hp = models.CharField(max_length = 3)
-    ac = models.CharField(max_length = 3)
+    monsterHP = models.CharField(max_length = 3)
+    monsterAC = models.CharField(max_length = 3)
     special = models.CharField(max_length = 32)
 
     def __str__(self):

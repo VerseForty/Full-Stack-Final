@@ -3,9 +3,8 @@
 <!-- Open Source Template Credit: StartBootstrap -->
 <html lang="en">
 
-<link href = "/static/css/simple-sidebar.css" rel = "stylesheet">
+<link href = "/static/css/battle.css" rel = "stylesheet">
 <link href = "/static/css/bootstrap.min.css" rel = "stylesheet">
-
 
 
 <head>
@@ -63,31 +62,34 @@
 
   <div class="container-fluid">
 
-    <form method="POST">
+    <div id="characterSide">
+      Name: <p id = "playerName">{{ playerName }}</p>
+      Race: <p id = "race">{{ race }}</p>
+      Class: <p id = "playerClass">{{ playerClass }}</p>
+      Strength: <p id = "strength">{{ strength }}</p>
+      Dexterity: <p id = "dexterity">{{ dexterity }}</p>
+      Constitution: <p id = "constitution">{{ constitution }}</p>
+      Intelligence: <p id = "intelligence">{{ intelligence }}</p>
+      Wisdom: <p id = "wisdom">{{ wisdom }}</p>
+      Charisma: <p id = "charisma">{{ charisma }}</p>
+      Remaining HP: <p id = "playerHP">{{ playerHP }}</p>
+    </div>
 
-      {% csrf_token %}
+    <div id="center">
+      VS
+      <button name ="btn" value ="btn" onclick ="takeDmg()"> Take damage </button>
+    </div>
 
-      <select name="character_id" id = "character_id">
-        {% for entry in characters %}
-            <option value="{{entry.playerName}}">{{ entry.playerName }}</option>
-        {% endfor %} <!-- MAKE THIS A GET REQUEST YOU MORON -->
-      </select>
-
-      <br><br>
-      <p> VS </p>
-      </br>
-
-      <select name="monster_id" id = "monster_id">
-        {% for entry in monsters %}
-            <option value="{{entry.monsterName}}">{{ entry.monsterName }}</option>
-        {% endfor %} <!-- MAKE THIS A GET REQUEST YOU MORON -->
-      </select>
-      {% csrf_token %}
+    <div id="monsterSide">
+      Enemy: <p id ="monsterName">{{ monsterName }}</p>
       <br>
-      <input type="submit" class="btn" value="Click" name="mybtn">
+      Accuracy: <p id = "monsterAC">{{ monsterAC }}</p>
+      <br>
+      Special: <p id ="special">{{ special }}</p>
+      <br>
+      Remaining HP: <p id ="monsterHP">{{ monsterHP }}</p>
+    </div>
 
-
-    </form>
 
 
 
@@ -99,5 +101,7 @@
 <!-- /#wrapper -->
 
 </body>
+<!-- script is imported last because it depends on values added by django -->
+<script src ="/static/js/battle.js"></script>
 
 </html>

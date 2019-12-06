@@ -60,9 +60,27 @@ class battleSimView(TemplateView):
        monster = monsterTable.objects.all()
        return render(request, self.template_name, {'characters':character, 'monsters':monster},)
 
+    def post(self, request, *args, **kwargs):
+       characterID = str(request.POST.get('character_id'))
+       monsterID = str(request.POST.get('monster_id'))
+
+       playerName = characterTable.objects.filter(playerName = characterID).first().playerName
+       race = characterTable.objects.filter(playerName = characterID).first().race
+       playerClass = characterTable.objects.filter(playerName = characterID).first().playerClass
+       strength = characterTable.objects.filter(playerName = characterID).first().strength
+       dexterity = characterTable.objects.filter(playerName = characterID).first().dexterity
+       constitution = characterTable.objects.filter(playerName = characterID).first().constitution
+       intelligence = characterTable.objects.filter(playerName = characterID).first().intelligence
+       wisdom = characterTable.objects.filter(playerName = characterID).first().wisdom
+       charisma = characterTable.objects.filter(playerName = characterID).first().charisma
+       playerHP = '10' #TEMPORARY VALUe
 
 
-
+       monsterName = monsterTable.objects.filter(monsterName = monsterID).first().monsterName
+       monsterHP = monsterTable.objects.filter(monsterName = monsterID).first().monsterHP
+       monsterAC = monsterTable.objects.filter(monsterName = monsterID).first().monsterAC
+       special = monsterTable.objects.filter(monsterName = monsterID).first().special
+       return render(request, 'battle.html',{'playerName':playerName,'race': race,'playerClass': playerClass, "strength": strength, "dexterity": dexterity, "constitution": constitution,'intelligence': intelligence,'wisdom': wisdom, 'charisma': charisma, 'playerHP': playerHP, 'monsterName':monsterName,'monsterHP': monsterHP, 'monsterAC': monsterAC, 'special': special})
 class beginnersGuideView(TemplateView):
     template_name = "beginnersGuide.html"
 
