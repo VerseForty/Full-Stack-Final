@@ -290,7 +290,7 @@ def PlayerClassDamage(x):
         print("called functionwizard")
 
 
-# In[68]:
+# In[76]:
 
 
 
@@ -399,7 +399,7 @@ def ClassWizardDamage(x):
         
             
             
-    elif(x.Class == "Wizard"):
+    elif(UAP == "NO"):
         if(x.level == 1):
             w.BaseAttackBonus = 0
         elif(x.level == 2):
@@ -443,7 +443,7 @@ def ClassWizardDamage(x):
         return w.BaseAttackBonus
 
 
-# In[69]:
+# In[77]:
 
 
 def monBattle(character,monster):
@@ -460,7 +460,7 @@ def monBattle(character,monster):
         
 
 
-# In[70]:
+# In[78]:
 
 
 def rollToHitMon(monster):
@@ -470,14 +470,14 @@ def rollToHitMon(monster):
     return accuracy 
 
 
-# In[71]:
+# In[79]:
 
 
 def attackMon(monster):
     return monster.CR
 
 
-# In[72]:
+# In[80]:
 
 
 def feats(character):
@@ -488,7 +488,7 @@ def feats(character):
     
 
 
-# In[73]:
+# In[81]:
 
 
 def dodgeFeature():
@@ -496,7 +496,7 @@ def dodgeFeature():
     return 1
 
 
-# In[74]:
+# In[82]:
 
 
 Battle(c,m)
@@ -508,7 +508,7 @@ Battle(c,m)
 Battle(r,m)
 
 
-# In[75]:
+# In[ ]:
 
 
 Battle(w,m)
