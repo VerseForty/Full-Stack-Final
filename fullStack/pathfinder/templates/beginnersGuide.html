@@ -30,11 +30,11 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading"> Options: </div>
       <div class="list-group list-group-flush">
-        <a href="http://localhost:8000/" class="list-group-item list-group-item-action bg-light">Home</a>
-        <a href="http://localhost:8000/characterCreator/" class="list-group-item list-group-item-action bg-light">Character Creator</a>
-        <a href="http://localhost:8000/battleSim/" class="list-group-item list-group-item-action bg-light">Battle Simulator</a>
-        <a href="http://localhost:8000/beginnersGuide/" class="list-group-item list-group-item-action bg-dark">Beginner's Guide</a>
-        <a href="http://localhost:8000/info/" class="list-group-item list-group-item-action bg-light">Info</a>
+        <a href="{% url 'home' %}" class="list-group-item list-group-item-action bg-light">Home</a>
+        <a href="{% url 'characterCreator' %}" class="list-group-item list-group-item-action bg-light">Character Creator</a>
+        <a href="{% url 'battleSim' %}" class="list-group-item list-group-item-action bg-light">Battle Simulator</a>
+        <a href="{% url 'beginnersGuide' %}" class="list-group-item list-group-item-action bg-dark">Beginner's Guide</a>
+        <a href="{% url 'info' %}" class="list-group-item list-group-item-action bg-light">Info</a>
 
       <!--  <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Status</a> -->
