@@ -27,11 +27,11 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
   <div class="sidebar-heading"> Options: </div>
   <div class="list-group list-group-flush">
-    <a href="http://localhost:8000/" class="list-group-item list-group-item-action bg-light">Home</a>
-    <a href="http://localhost:8000/characterCreator/" class="list-group-item list-group-item-action bg-light">Character Creator</a>
-    <a href="http://localhost:8000/battleSim/" class="list-group-item list-group-item-action bg-dark">Battle Simulator</a>
-    <a href="http://localhost:8000/beginnersGuide/" class="list-group-item list-group-item-action bg-light">Beginner's Guide</a>
-    <a href="http://localhost:8000/info/" class="list-group-item list-group-item-action bg-light">Info</a>
+    <a href="{% url 'home' %}" class="list-group-item list-group-item-action bg-light">Home</a>
+    <a href="{% url 'characterCreator' %}" class="list-group-item list-group-item-action bg-light">Character Creator</a>
+    <a href="{% url 'battleSim' %}" class="list-group-item list-group-item-action bg-dark">Battle Simulator</a>
+    <a href="{% url 'beginnersGuide' %}" class="list-group-item list-group-item-action bg-light">Beginner's Guide</a>
+    <a href="{% url 'info' %}" class="list-group-item list-group-item-action bg-light">Info</a>
 
   <!--  <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
     <a href="#" class="list-group-item list-group-item-action bg-light">Status</a> -->
@@ -73,11 +73,39 @@
       Wisdom: <p id = "wisdom">{{ wisdom }}</p>
       Charisma: <p id = "charisma">{{ charisma }}</p>
       Remaining HP: <p id = "playerHP">{{ playerHP }}</p>
+      Weapon: <select name ="weapon" id = "weapon">
+        <option value = "Club"> Club </option>
+        <option value = "Dagger"> Dagger </option>
+      </select><br>
+      Level: <select name ="level" id = "level">
+        <option value="1"> 1 </option>
+        <option value="2"> 2 </option>
+        <option value="3"> 3 </option>
+        <option value="4"> 4 </option>
+        <option value="5"> 5 </option>
+        <option value="6"> 6 </option>
+        <option value="7"> 7 </option>
+        <option value="8"> 8 </option>
+        <option value="9"> 9 </option>
+        <option value="10"> 10 </option>
+        <option value="11"> 11 </option>
+        <option value="12"> 12 </option>
+        <option value="13"> 13 </option>
+        <option value="14"> 14 </option>
+        <option value="15"> 15 </option>
+        <option value="16"> 16 </option>
+        <option value="17"> 17 </option>
+        <option value="18"> 18 </option>
+        <option value="19"> 19 </option>
+        <option value="20"> 20 </option>
+      </select>
     </div>
 
     <div id="center">
       VS
       <button name ="btn" value ="btn" onclick ="takeDmg()"> Take damage </button>
+      <button name ="btn2" value ="btn2" onclick ="playerAttack()"> Attack </button>
+
     </div>
 
     <div id="monsterSide">
@@ -87,6 +115,8 @@
       <br>
       Special: <p id ="special">{{ special }}</p>
       <br>
+      CR: <p id ="monsterCR">{{ monsterCR }}</p>
+
       Remaining HP: <p id ="monsterHP">{{ monsterHP }}</p>
     </div>
 

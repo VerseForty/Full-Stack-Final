@@ -80,7 +80,9 @@ class battleSimView(TemplateView):
        monsterHP = monsterTable.objects.filter(monsterName = monsterID).first().monsterHP
        monsterAC = monsterTable.objects.filter(monsterName = monsterID).first().monsterAC
        special = monsterTable.objects.filter(monsterName = monsterID).first().special
-       return render(request, 'battle.html',{'playerName':playerName,'race': race,'playerClass': playerClass, "strength": strength, "dexterity": dexterity, "constitution": constitution,'intelligence': intelligence,'wisdom': wisdom, 'charisma': charisma, 'playerHP': playerHP, 'monsterName':monsterName,'monsterHP': monsterHP, 'monsterAC': monsterAC, 'special': special})
+       monsterCR = monsterTable.objects.filter(monsterName = monsterID).first().monsterCR
+
+       return render(request, 'battle.html',{'playerName':playerName,'race': race,'playerClass': playerClass, "strength": strength, "dexterity": dexterity, "constitution": constitution,'intelligence': intelligence,'wisdom': wisdom, 'charisma': charisma, 'playerHP': playerHP, 'monsterName':monsterName,'monsterHP': monsterHP, 'monsterAC': monsterAC, 'monsterCR': monsterCR, 'special': special})
 class beginnersGuideView(TemplateView):
     template_name = "beginnersGuide.html"
 
