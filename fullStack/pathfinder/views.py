@@ -63,6 +63,9 @@ class battleSimView(TemplateView):
     def post(self, request, *args, **kwargs):
        characterID = str(request.POST.get('character_id'))
        monsterID = str(request.POST.get('monster_id'))
+       playerHP = str(request.POST.get('player_hp'))
+       weapon = str(request.POST.get('weapon'))
+       level = str(request.POST.get('level'))
 
        playerName = characterTable.objects.filter(playerName = characterID).first().playerName
        race = characterTable.objects.filter(playerName = characterID).first().race
@@ -73,14 +76,15 @@ class battleSimView(TemplateView):
        intelligence = characterTable.objects.filter(playerName = characterID).first().intelligence
        wisdom = characterTable.objects.filter(playerName = characterID).first().wisdom
        charisma = characterTable.objects.filter(playerName = characterID).first().charisma
-       playerHP = '10' #TEMPORARY VALUe
 
 
        monsterName = monsterTable.objects.filter(monsterName = monsterID).first().monsterName
        monsterHP = monsterTable.objects.filter(monsterName = monsterID).first().monsterHP
        monsterAC = monsterTable.objects.filter(monsterName = monsterID).first().monsterAC
        special = monsterTable.objects.filter(monsterName = monsterID).first().special
-       return render(request, 'battle.html',{'playerName':playerName,'race': race,'playerClass': playerClass, "strength": strength, "dexterity": dexterity, "constitution": constitution,'intelligence': intelligence,'wisdom': wisdom, 'charisma': charisma, 'playerHP': playerHP, 'monsterName':monsterName,'monsterHP': monsterHP, 'monsterAC': monsterAC, 'special': special})
+       monsterCR = monsterTable.objects.filter(monsterName = monsterID).first().monsterCR
+
+       return render(request, 'battle.html',{'playerName':playerName,'race': race,'playerClass': playerClass, "strength": strength, "dexterity": dexterity, "constitution": constitution,'intelligence': intelligence,'wisdom': wisdom, 'charisma': charisma, 'playerHP': playerHP, 'monsterName':monsterName,'monsterHP': monsterHP, 'monsterAC': monsterAC, 'monsterCR': monsterCR, 'special': special, 'weapon': weapon, 'level': level})
 class beginnersGuideView(TemplateView):
     template_name = "beginnersGuide.html"
 

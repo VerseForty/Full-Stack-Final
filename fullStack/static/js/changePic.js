@@ -6,15 +6,15 @@ function changePic(){
   //alert(inputString);
 
 
-  if(inputString == "fighter"){
+  if(inputString == "Fighter"){
     document.getElementById('characterPic').src = '/static/assets/alan.png';
   }
 
-  else if(inputString == "rogue"){
+  else if(inputString == "Rogue"){
     document.getElementById('characterPic').src = '/static/assets/simon.png';
   }
 
-  else if(inputString == "wizard"){
+  else if(inputString == "Wizard"){
     document.getElementById('characterPic').src = '/static/assets/ivan.png';
   }
 }

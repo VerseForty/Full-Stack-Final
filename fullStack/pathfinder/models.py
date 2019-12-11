@@ -20,6 +20,7 @@ class characterTable(models.Model):
 
 class monsterTable(models.Model):
     monsterName = models.CharField(max_length = 32)
+    monsterCR = models.CharField(max_length = 3)
     monsterHP = models.CharField(max_length = 3)
     monsterAC = models.CharField(max_length = 3)
     special = models.CharField(max_length = 32)

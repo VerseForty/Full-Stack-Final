@@ -27,11 +27,11 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
   <div class="sidebar-heading"> Options: </div>
   <div class="list-group list-group-flush">
-    <a href="http://localhost:8000/" class="list-group-item list-group-item-action bg-light">Home</a>
-    <a href="http://localhost:8000/characterCreator/" class="list-group-item list-group-item-action bg-light">Character Creator</a>
-    <a href="http://localhost:8000/battleSim/" class="list-group-item list-group-item-action bg-dark">Battle Simulator</a>
-    <a href="http://localhost:8000/beginnersGuide/" class="list-group-item list-group-item-action bg-light">Beginner's Guide</a>
-    <a href="http://localhost:8000/info/" class="list-group-item list-group-item-action bg-light">Info</a>
+    <a href="{% url 'home' %}" class="list-group-item list-group-item-action bg-light">Home</a>
+    <a href="{% url 'characterCreator' %}" class="list-group-item list-group-item-action bg-light">Character Creator</a>
+    <a href="{% url 'battleSim' %}" class="list-group-item list-group-item-action bg-dark">Battle Simulator</a>
+    <a href="{% url 'beginnersGuide' %}" class="list-group-item list-group-item-action bg-light">Beginner's Guide</a>
+    <a href="{% url 'info' %}" class="list-group-item list-group-item-action bg-light">Info</a>
 
   <!--  <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
     <a href="#" class="list-group-item list-group-item-action bg-light">Status</a> -->
@@ -73,11 +73,33 @@
       Wisdom: <p id = "wisdom">{{ wisdom }}</p>
       Charisma: <p id = "charisma">{{ charisma }}</p>
       Remaining HP: <p id = "playerHP">{{ playerHP }}</p>
+      Weapon: <br><select name ="weapon" id = "weapon" onchange="updateWeapon()">
+              <option value = "Club">Club</option>
+              <option value = "Dagger">Dagger</option>
+            </select><br><br>
+      Level: <p id = "level"> {{ level }} </p>
+
     </div>
 
     <div id="center">
-      VS
-      <button name ="btn" value ="btn" onclick ="takeDmg()"> Take damage </button>
+      <br><br><br>
+      Weapon:<button name ="btn2" value ="btn2" onclick ="playerAttack()"class ="button"> Attack </button>
+      <br>
+      Spell #1:  <button name ="spell1" value ="spell1" id ="spell1" onclick ="spell1()" class ="button"> None </button>
+      <br>
+      Spell #2:  <button name ="spell2" value ="spell2" id ="spell2" onclick ="spell2()"class ="button"> None </button>
+      <br>
+      Spell #3:  <button name ="spell3" value ="spell3" id ="spell3" onclick ="spell3()"class ="button"> None </button>
+      <br>
+      Spell #4:  <button name ="spell4" value ="spell4" id ="spell4"onclick ="spell4()"class ="button"> None </button>
+      <br>
+      Spell #5:  <button name ="spell5" value ="spell5" id ="spell5"onclick ="spell5()"class ="button"> None </button>
+      <br>
+      Spell #6:  <button name ="spell6" value ="spell6" id ="spell6" onclick ="spell6()"class ="button"> None </button>
+      <br>
+      Spell #7:  <button name ="spell7" value ="spell7" id ="spell7" onclick ="spell7()"class ="button"> None </button>
+      <br>
+      <button name = "pass" onclick="monsterAttack()" class = "button">Pass Turn</button>
     </div>
 
     <div id="monsterSide">
@@ -87,6 +109,8 @@
       <br>
       Special: <p id ="special">{{ special }}</p>
       <br>
+      CR: <p id ="monsterCR">{{ monsterCR }}</p>
+
       Remaining HP: <p id ="monsterHP">{{ monsterHP }}</p>
     </div>
 

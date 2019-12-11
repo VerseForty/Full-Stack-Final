@@ -13,17 +13,22 @@ body {
 
 }
 
-
+.button{
+  width: 150px;
+}
 #characterSide{
 float: left;}
 
 #center{
   text-align: center;
   margin: auto;
+  white-space: nowrap;
+  padding: 0;
 }
 #monsterSide{
+  white-space: nowrap;
   float: right;
-
+  padding: 0;
 }
 #sidebar-wrapper {
   min-height: 100vh;

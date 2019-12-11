@@ -26,11 +26,11 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
   <div class="sidebar-heading"> Options: </div>
   <div class="list-group list-group-flush">
-    <a href="http://localhost:8000/" class="list-group-item list-group-item-action bg-light">Home</a>
-    <a href="http://localhost:8000/characterCreator/" class="list-group-item list-group-item-action bg-dark">Character Creator</a>
-    <a href="http://localhost:8000/battleSim/" class="list-group-item list-group-item-action bg-light">Battle Simulator</a>
-    <a href="http://localhost:8000/beginnersGuide/" class="list-group-item list-group-item-action bg-light">Beginner's Guide</a>
-    <a href="http://localhost:8000/info/" class="list-group-item list-group-item-action bg-light">Info</a>
+    <a href="{% url 'home' %}" class="list-group-item list-group-item-action bg-light">Home</a>
+    <a href="{% url 'characterCreator' %}" class="list-group-item list-group-item-action bg-dark">Character Creator</a>
+    <a href="{% url 'battleSim' %}" class="list-group-item list-group-item-action bg-light">Battle Simulator</a>
+    <a href="{% url 'beginnersGuide' %}" class="list-group-item list-group-item-action bg-light">Beginner's Guide</a>
+    <a href="{% url 'info' %}" class="list-group-item list-group-item-action bg-light">Info</a>
 
   </div>
 </div>
@@ -70,21 +70,21 @@
 
           Race:<br>
           <select name = "race" id = "race">
-            <option value = "human"> Human </option>
-            <option value = "elf"> Elf </option>
-            <option value = "dwarf"> Dwarf </option>
-            <option value = "gnome"> Gnome </option>
-            <option value = "halfling"> Halfling </option>
-            <option value = "halfElf"> Half-Elf </option>
-            <option value = "halfOrc"> Half-Orc </option>
+            <option value = "Human"> Human </option>
+            <option value = "Elf"> Elf </option>
+            <option value = "Dwarf"> Dwarf </option>
+            <option value = "Gnome"> Gnome </option>
+            <option value = "Halfling"> Halfling </option>
+            <option value = "Half-Elf"> Half-Elf </option>
+            <option value = "Half-Orc"> Half-Orc </option>
           </select>
           <br>
 
           Class:<br>
           <select name = "class" id = "class" onchange="changePic()">
-            <option value = "fighter"> Fighter </option>
-            <option value = "rogue"> Rogue </option>
-            <option value = "wizard"> Wizard </option>
+            <option value = "Fighter"> Fighter </option>
+            <option value = "Rogue"> Rogue </option>
+            <option value = "Wizard"> Wizard </option>
           </select>
           <br>
 
@@ -113,7 +113,7 @@
           <br>
 
           <br><br>
-          <input type="submit" class="btn" value="Click" name="mybtn">
+          <input type="submit" class="btn" value="Submit" name="mybtn">
 
           <br><br>
         </form>
@@ -122,7 +122,7 @@
       </div>
 
       <div id = "pictureBox">
-        <img id = "characterPic" src = ""> </img>
+        <img id = "characterPic" src = "/static/assets/alan.png"> </img>
       </div>
     </div>
     <!--<p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
