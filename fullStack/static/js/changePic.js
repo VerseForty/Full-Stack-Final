@@ -1,3 +1,4 @@
+//function for updating picture on character creator
 function changePic(){
 
   var inputHTML = document.getElementById("class");

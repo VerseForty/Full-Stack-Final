@@ -1,3 +1,4 @@
+#admin page config
 from django.contrib import admin
 from .models import characterTable
 from .models import monsterTable
