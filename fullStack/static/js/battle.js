@@ -29,6 +29,18 @@ var attack
 switch (playerClass) {
   case "Fighter":
     switch (strength){
+	  case 7:
+        attack = -4
+        break;
+	  case 8:
+        attack = -3
+        break;
+	  case 9:
+        attack = -2
+        break;
+	  case 10:
+        attack = 0
+        break;
       case 11:
         attack = 1
         break;
@@ -62,7 +74,19 @@ switch (playerClass) {
 
   case "Rogue":
     switch (dexterity){
-      case 11:
+       case 7:
+        attack = -4
+        break;
+	  case 8:
+        attack = -3
+        break;
+	  case 9:
+        attack = -2
+        break;
+	  case 10:
+        attack = 0
+        break;
+	  case 11:
         attack = 1
         break;
       case 12:
@@ -192,6 +216,14 @@ function playerAttack(){
       case "Club":
         weaponDamage = (getRandomInt(5)+1)
         alert("You rolled a " + weaponDamage + " out of 6 for your weapon roll")
+        break;
+	  case "LongSword":
+        weaponDamage = (getRandomInt(7)+1)
+        alert("You rolled a " + weaponDamage + " out of 8 for your weapon roll")
+        break;
+	  case "CrossBow":
+      weaponDamage = (getRandomInt(9)+1)
+      alert("You rolled a " + weaponDamage + " out of 10 for your weapon roll")
         break;
       case "Dagger":
       weaponDamage = (getRandomInt(3)+1)
