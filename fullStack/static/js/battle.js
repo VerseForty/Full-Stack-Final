@@ -1,3 +1,4 @@
+//JavaScript adapted from Chris Cruz's python code for battle simulation
 /*
 Constant stats that will not be changed, HP will though so it is checked
 every time it is called. Stats need to be parsed to ints for calculation
@@ -29,18 +30,6 @@ var attack
 switch (playerClass) {
   case "Fighter":
     switch (strength){
-	  case 7:
-        attack = -4
-        break;
-	  case 8:
-        attack = -3
-        break;
-	  case 9:
-        attack = -2
-        break;
-	  case 10:
-        attack = 0
-        break;
       case 11:
         attack = 1
         break;
@@ -74,19 +63,7 @@ switch (playerClass) {
 
   case "Rogue":
     switch (dexterity){
-       case 7:
-        attack = -4
-        break;
-	  case 8:
-        attack = -3
-        break;
-	  case 9:
-        attack = -2
-        break;
-	  case 10:
-        attack = 0
-        break;
-	  case 11:
+      case 11:
         attack = 1
         break;
       case 12:
@@ -172,7 +149,7 @@ function monsterAttack(){
   var acRoll = getRandomInt(20)+1
   var playerAC = (acRoll + proficiency)
 
-  var monsterACRoll = (getRandomInt(20)+1)
+  var monsterACRoll = (getRandomInt(20)+1+monsterCR )
   if(monsterACRoll >= playerAC){
     var playerHP = document.getElementById("playerHP").innerHTML;
     var playerHPInt = parseInt(playerHP);
@@ -216,14 +193,6 @@ function playerAttack(){
       case "Club":
         weaponDamage = (getRandomInt(5)+1)
         alert("You rolled a " + weaponDamage + " out of 6 for your weapon roll")
-        break;
-	  case "LongSword":
-        weaponDamage = (getRandomInt(7)+1)
-        alert("You rolled a " + weaponDamage + " out of 8 for your weapon roll")
-        break;
-	  case "CrossBow":
-      weaponDamage = (getRandomInt(9)+1)
-      alert("You rolled a " + weaponDamage + " out of 10 for your weapon roll")
         break;
       case "Dagger":
       weaponDamage = (getRandomInt(3)+1)

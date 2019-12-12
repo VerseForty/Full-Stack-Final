@@ -1,4 +1,5 @@
 # this file and implementation of static HTML based off of Amos Omondi's tutorial on scotch.io: https://scotch.io/tutorials/working-with-django-templates-static-files
+#used to render pages and pass necessary python parameters to them.
 from django.shortcuts import render
 from django.views.generic import TemplateView # Import TemplateView
 from django.http import HttpResponse
