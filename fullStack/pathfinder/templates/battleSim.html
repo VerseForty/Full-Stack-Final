@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!-- core CSS adapted from https://startbootstrap.com/templates/simple-sidebar/-->
+<html lang="en">
+
+<link href = "/static/css/simple-sidebar.css" rel = "stylesheet">
+<link href = "/static/css/bootstrap.min.css" rel = "stylesheet">
+
+
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Battle Simulator</title> <!-- Placeholder-->
+
+
+</head>
+
+<body>
+
+<div class="d-flex" id="wrapper">
+
+<!-- Sidebar -->
+<div class="bg-light border-right" id="sidebar-wrapper">
+  <div class="sidebar-heading"> Options: </div>
+  <div class="list-group list-group-flush">
+    <a href="{% url 'home' %}" class="list-group-item list-group-item-action bg-light">Home</a>
+    <a href="{% url 'characterCreator' %}" class="list-group-item list-group-item-action bg-light">Character Creator</a>
+    <a href="{% url 'battleSim' %}" class="list-group-item list-group-item-action bg-dark">Battle Simulator</a>
+    <a href="{% url 'beginnersGuide' %}" class="list-group-item list-group-item-action bg-light">Beginner's Guide</a>
+    <a href="{% url 'info' %}" class="list-group-item list-group-item-action bg-light">Info</a>
+
+  <!--  <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+    <a href="#" class="list-group-item list-group-item-action bg-light">Status</a> -->
+  </div>
+</div>
+<!-- /#sidebar-wrapper -->
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <!-- Menu Toggle Button -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:8000/login/">Login</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid">
+
+    <form method="POST">
+
+      {% csrf_token %}
+
+      <select name="character_id" id = "character_id">
+        {% for entry in characters %}
+            <option value="{{entry.playerName}}">{{ entry.playerName }}</option>
+        {% endfor %} <!-- MAKE THIS A GET REQUEST YOU MORON -->
+      </select>
+      <br>
+      Level: <select name ="level" id = "level">
+        <option value="1"> 1 </option>
+        <option value="2"> 2 </option>
+        <option value="3"> 3 </option>
+        <option value="4"> 4 </option>
+        <option value="5"> 5 </option>
+        <option value="6"> 6 </option>
+        <option value="7"> 7 </option>
+        <option value="8"> 8 </option>
+        <option value="9"> 9 </option>
+        <option value="10"> 10 </option>
+        <option value="11"> 11 </option>
+        <option value="12"> 12 </option>
+        <option value="13"> 13 </option>
+        <option value="14"> 14 </option>
+        <option value="15"> 15 </option>
+        <option value="16"> 16 </option>
+        <option value="17"> 17 </option>
+        <option value="18"> 18 </option>
+        <option value="19"> 19 </option>
+        <option value="20"> 20 </option>
+      </select>
+      <br>
+      Starting HP:
+      <input name ="player_hp" id ="player_hp" min ="1" max ="100"></input>
+      <br><br>
+
+
+
+      <p> VS </p>
+      </br>
+      <select name="monster_id" id = "monster_id">
+        {% for entry in monsters %}
+            <option value="{{entry.monsterName}}">{{ entry.monsterName }}</option>
+        {% endfor %} <!-- MAKE THIS A GET REQUEST YOU MORON -->
+      </select>
+      {% csrf_token %}
+      <br>
+	  
+      <input type="submit" class="btn" value="Fight" name="mybtn">
+
+
+    </form>
+
+
+
+
+  </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+</body>
+
+</html>
