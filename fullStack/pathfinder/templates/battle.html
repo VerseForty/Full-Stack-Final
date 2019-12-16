@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <!-- MIGHT BE MISSING IMPORT FOR PYTHON INTEGRAATION -->
 <!DOCTYPE html>
 <!-- Open Source Template Credit: StartBootstrap -->
@@ -133,6 +134,141 @@
 <script src ="/static/js/battle.js"></script>
 
 </html>
+=======
+<!-- MIGHT BE MISSING IMPORT FOR PYTHON INTEGRAATION -->
+<!DOCTYPE html>
+<!-- Open Source Template Credit: StartBootstrap -->
+<html lang="en">
+
+<link href = "/static/css/battle.css" rel = "stylesheet">
+<link href = "/static/css/bootstrap.min.css" rel = "stylesheet">
+
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Battle Simulator</title> <!-- Placeholder-->
+
+
+</head>
+
+<body>
+
+<div class="d-flex" id="wrapper">
+
+<!-- Sidebar -->
+<div class="bg-light border-right" id="sidebar-wrapper">
+  <div class="sidebar-heading"> Options: </div>
+  <div class="list-group list-group-flush">
+    <a href="{% url 'home' %}" class="list-group-item list-group-item-action bg-light">Home</a>
+    <a href="{% url 'characterCreator' %}" class="list-group-item list-group-item-action bg-light">Character Creator</a>
+    <a href="{% url 'battleSim' %}" class="list-group-item list-group-item-action bg-dark">Battle Simulator</a>
+    <a href="{% url 'beginnersGuide' %}" class="list-group-item list-group-item-action bg-light">Beginner's Guide</a>
+    <a href="{% url 'info' %}" class="list-group-item list-group-item-action bg-light">Info</a>
+
+  <!--  <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+    <a href="#" class="list-group-item list-group-item-action bg-light">Status</a> -->
+  </div>
+</div>
+<!-- /#sidebar-wrapper -->
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <!-- Menu Toggle Button -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:8000/login/">Login</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid">
+
+    <div id="characterSide">
+      Name: <p id = "playerName">{{ playerName }}</p>
+      Race: <p id = "race">{{ race }}</p>
+      Class: <p id = "playerClass">{{ playerClass }}</p>
+      Strength: <p id = "strength">{{ strength }}</p>
+      Dexterity: <p id = "dexterity">{{ dexterity }}</p>
+      Constitution: <p id = "constitution">{{ constitution }}</p>
+      Intelligence: <p id = "intelligence">{{ intelligence }}</p>
+      Wisdom: <p id = "wisdom">{{ wisdom }}</p>
+      Charisma: <p id = "charisma">{{ charisma }}</p>
+      Remaining HP: <p id = "playerHP">{{ playerHP }}</p>
+      Weapon: <br><select name ="weapon" id = "weapon" onchange="updateWeapon()">
+              <option value = "Club">Club</option>
+              <option value = "Dagger">Dagger</option>
+			  <option value = "LongSword">LongSword</option>
+			  <option value = "CrossBow">CrossBow</option>
+            </select><br><br>
+      Level: <p id = "level"> {{ level }} </p>
+		<button name = "btn5" value = "btn5" onclick = "Download()" class = "button">Download</button>
+    </div>
+
+    <div id="center">
+      <br><br><br>
+      Weapon:<button name ="btn2" value ="btn2" onclick ="playerAttack()"class ="button"> Attack </button>
+      <br>
+      Spell #1:  <button name ="spell1" value ="spell1" id ="spell1" onclick ="spell1()" class ="button"> None </button>
+      <br>
+      Spell #2:  <button name ="spell2" value ="spell2" id ="spell2" onclick ="spell2()"class ="button"> None </button>
+      <br>
+      Spell #3:  <button name ="spell3" value ="spell3" id ="spell3" onclick ="spell3()"class ="button"> None </button>
+      <br>
+      Spell #4:  <button name ="spell4" value ="spell4" id ="spell4"onclick ="spell4()"class ="button"> None </button>
+      <br>
+      Spell #5:  <button name ="spell5" value ="spell5" id ="spell5"onclick ="spell5()"class ="button"> None </button>
+      <br>
+      Spell #6:  <button name ="spell6" value ="spell6" id ="spell6" onclick ="spell6()"class ="button"> None </button>
+      <br>
+      Spell #7:  <button name ="spell7" value ="spell7" id ="spell7" onclick ="spell7()"class ="button"> None </button>
+      <br>
+      <button name = "pass" onclick="monsterAttack()" class = "button">Pass Turn</button>
+    </div>
+
+    <div id="monsterSide">
+      Enemy: <p id ="monsterName">{{ monsterName }}</p>
+      <br>
+      Accuracy: <p id = "monsterAC">{{ monsterAC }}</p>
+      <br>
+      Special: <p id ="special">{{ special }}</p>
+      <br>
+      CR: <p id ="monsterCR">{{ monsterCR }}</p>
+
+      Remaining HP: <p id ="monsterHP">{{ monsterHP }}</p>
+    </div>
+
+
+
+
+  </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+</body>
+<!-- script is imported last because it depends on values added by django -->
+<script src ="/static/js/battle.js"></script>
+
+</html>
+>>>>>>> Stashed changes
 =======
 <!-- MIGHT BE MISSING IMPORT FOR PYTHON INTEGRAATION -->
 <!DOCTYPE html>
