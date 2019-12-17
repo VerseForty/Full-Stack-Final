@@ -1,3 +1,4 @@
+
 /*
 Constant stats that will not be changed, HP will though so it is checked
 every time it is called. Stats need to be parsed to ints for calculation
@@ -555,4 +556,20 @@ function spell7(){
       alert("Your class cannot use spells!")
       break;
   }
+}
+
+function Download(){
+	
+	var myObj = {name: playerName, characterRace : race, characterStrength : strength, characterDexterity : dexterity, characterConstitution: constitution, characterIntelligence: intelligence, characterWisdom: wisdom, characterCharisma: charisma, characterLevel: level};
+	var data = "text/json;charse=utf-8," + encodeURIComponent(JSON.stringify(myObj));
+
+	var a = document.createElement('a');
+
+	a.href = 'data:' + data;
+	a.download = 'data.json';
+	a.innerHTML = 'download JSON';
+
+	var container = document.getElementById('container');
+	document.body.appendChild(a);
+
 }
